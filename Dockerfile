@@ -7,9 +7,8 @@ RUN apt-get install -y vim
 RUN apt-get install -y wget
 
 COPY ./src ./
-WORKDIR /src
 
-CMD ["python3", "test_with_cleanup.py"]
+CMD ["python3", "src/test_with_cleanup.py"]
 
 
 
@@ -19,7 +18,7 @@ RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -
 RUN bash ~/miniconda.sh -b -p
 RUN rm ~/miniconda.sh
 
-CMD ["python3", "test_with_cleanup.py"]
+CMD ["python3", "src/test_with_cleanup.py"]
 
 
 
@@ -29,4 +28,4 @@ COPY ./environment.yml /
 RUN /bin/bash -c "source ~/miniconda3/bin/activate && conda env create -f /environment.yml"
 
 ENTRYPOINT ["./run_in_conda"]
-CMD ["python3", "test_with_cleanup.py"]
+CMD ["python3", "src/test_with_cleanup.py"]
