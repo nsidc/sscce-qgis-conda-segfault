@@ -3,4 +3,4 @@ channels:
   - conda-forge
   - nodefaults
 dependencies:
-  - qgis ~=3.14.3
+  - qgis ~=3.16.0
