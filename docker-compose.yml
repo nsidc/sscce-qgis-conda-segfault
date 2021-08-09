@@ -1,53 +1,49 @@
+x-common: &common
+  build:
+    context: .
+    dockerfile: Dockerfile
+    target: qgis-only
+  volumes:
+    - /tmp/.X11-unix:/tmp/.X11-unix
+    - ./src/:/src/
+  environment:
+    - "DISPLAY=${DISPLAY}"
+    - QT_QPA_PLATFORM=offscreen
+
+
 version: '3.4'
 services:
 
   official_env_with_cleanup: &official
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: qgis-only
-    volumes:
-      - /tmp/.X11-unix:/tmp/.X11-unix
-      - ./src/:/src/
-    environment:
-      - "DISPLAY=${DISPLAY}"
-      - QT_QPA_PLATFORM=offscreen
+    <<: *common
 
 
   official_env_without_cleanup:
     <<: *official
-    command: 'python3 test_without_cleanup.py' 
+    command: 'python3 src/test_without_cleanup.py' 
 
 
   official_env_conda_installed_with_cleanup: &official_plus_conda
+    <<: *common
     build:
       context: .
       dockerfile: Dockerfile
       target: qgis-plus-conda
-    volumes:
-      - /tmp/.X11-unix:/tmp/.X11-unix
-      - ./src/:/src/
-    environment:
-      - QT_QPA_PLATFORM=offscreen
 
 
   official_env_conda_installed_without_cleanup:
     <<: *official_plus_conda
-    command: 'python3 test_without_cleanup.py' 
+    command: 'python3 src/test_without_cleanup.py' 
 
 
   conda_env_with_cleanup: &conda
+    << *common
     build:
       context: .
       dockerfile: Dockerfile
       target: qgis-in-conda-env
-    volumes:
-      - /tmp/.X11-unix:/tmp/.X11-unix
-      - ./src/:/src/
-    environment:
-      - QT_QPA_PLATFORM=offscreen
 
 
   conda_env_without_cleanup:
     <<: *conda
-    command: 'python3 test_without_cleanup.py' 
+    command: 'python3 src/test_without_cleanup.py' 
