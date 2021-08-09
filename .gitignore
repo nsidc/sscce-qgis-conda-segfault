@@ -1,1 +1,6 @@
+# CTags
+/tags
+/tags.lock
+
+# Python
 __pycache__
