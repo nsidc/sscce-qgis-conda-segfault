@@ -14,7 +14,7 @@ x-without-cleanup: &without-cleanup
   command: 'python3 src/test_without_cleanup.py'
 
 x-conda-without-cleanup: &conda-without-cleanup
-  command: './src/run_in_conda.sh python3 src/test_without_cleanup.py'
+  command: './src/run_in_conda.sh python src/test_without_cleanup.py'
 
 
 version: '3.4'

@@ -27,4 +27,4 @@ FROM qgis-plus-conda as qgis-in-conda-env
 COPY ./environment.yml /
 RUN /bin/bash -c "source ~/miniconda3/bin/activate && conda env create -f /environment.yml"
 
-CMD ./src/run_in_conda.sh python3 src/test_with_cleanup.py
+CMD ./src/run_in_conda.sh python src/test_with_cleanup.py
