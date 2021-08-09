@@ -37,7 +37,7 @@ services:
 
 
   conda_env_with_cleanup: &conda
-    << *common
+    <<: *common
     build:
       context: .
       dockerfile: Dockerfile
