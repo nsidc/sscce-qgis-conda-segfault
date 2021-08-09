@@ -1,3 +1,8 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
-source ~/miniconda3/bin/activate && conda activate test-qgis-segfault && $@
+echo "$@"
+echo "foo bar"
+source ~/miniconda3/bin/activate \
+    && echo "baz" \
+    && source activate 'test-qgis-segfault' && echo "bar" \
+    && $@
