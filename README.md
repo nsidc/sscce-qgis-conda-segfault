@@ -1,3 +1,7 @@
+Attempt at an
+[SSCCE](https://docs.google.com/document/d/14svLZT5yzSW07VWKFABLvUcjIntwBZa2uQokTTMTsoc/edit)
+reproducing a segmentation fault using pyQGIS.
+
 All versions after QGIS v3.10 began segfaulting with our existing code after
 upgrade. We believe it's an issue with conda packaging because we can't
 reproduce it on the official QGIS Docker image.
