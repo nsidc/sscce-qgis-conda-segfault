@@ -10,20 +10,25 @@ x-common: &common
     - "DISPLAY=${DISPLAY}"
     - QT_QPA_PLATFORM=offscreen
 
+x-without-cleanup: &without-cleanup
+  command: 'python3 src/test_without_cleanup.py'
+
+x-conda-without-cleanup: &conda-without-cleanup
+  command: './src/run_in_conda.sh python3 src/test_without_cleanup.py'
+
 
 version: '3.4'
 services:
 
-  official_env_with_cleanup: &official
+  official_env_with_cleanup:
     <<: *common
 
 
   official_env_without_cleanup:
-    <<: *official
-    command: 'python3 src/test_without_cleanup.py' 
+    <<: [*common, *without-cleanup]
 
 
-  official_env_conda_installed_with_cleanup: &official_plus_conda
+  official_env_conda_installed_with_cleanup: &official-plus-conda
     <<: *common
     build:
       context: .
@@ -32,8 +37,7 @@ services:
 
 
   official_env_conda_installed_without_cleanup:
-    <<: *official_plus_conda
-    command: 'python3 src/test_without_cleanup.py' 
+    <<: [*official-plus-conda, *without-cleanup]
 
 
   conda_env_with_cleanup: &conda
@@ -45,5 +49,4 @@ services:
 
 
   conda_env_without_cleanup:
-    <<: *conda
-    command: 'python3 src/test_without_cleanup.py' 
+    <<: [*conda, *conda-without-cleanup]
