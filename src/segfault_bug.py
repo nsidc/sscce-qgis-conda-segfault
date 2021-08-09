@@ -44,6 +44,6 @@ def main():
     qgs.exitQgis()
 
 
-def main_without_cleanup()
+def main_without_cleanup():
     vector_result = trigger_with_vector()
     print(vector_result)
