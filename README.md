@@ -25,15 +25,10 @@ docker-compose run conda_env_without_cleanup
 
 ```
 $ docker-compose run official_env_with_cleanup
-No protocol specified
-qt.qpa.xcb: could not connect to display :0
-qt.qpa.plugin: Could not load the Qt platform plugin "xcb" in "" even though it was found.
-This application failed to start because no Qt platform plugin could be initialized. Reinstalling the application may fix this problem.
-
-Available platform plugins are: eglfs, linuxfb, minimal, minimalegl, offscreen, vnc, xcb.
-
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+<QgsVectorLayer: 'vectorlayer' (ogr)>
 $ echo $?
-139
+0
 ```
 
 ```
@@ -47,14 +42,10 @@ $ echo $?
 
 ```
 $ docker-compose run official_env_conda_installed_with_cleanup
-qt.qpa.xcb: could not connect to display
-qt.qpa.plugin: Could not load the Qt platform plugin "xcb" in "" even though it was found.
-This application failed to start because no Qt platform plugin could be initialized. Reinstalling the application may fix this problem.
-
-Available platform plugins are: eglfs, linuxfb, minimal, minimalegl, offscreen, vnc, xcb.
-
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+<QgsVectorLayer: 'vectorlayer' (ogr)>
 $ echo $?
-139
+0
 ```
 
 ```
@@ -68,14 +59,10 @@ $ echo $?
 
 ```
 $ docker-compose run conda_env_with_cleanup
-qt.qpa.xcb: could not connect to display
-qt.qpa.plugin: Could not load the Qt platform plugin "xcb" in "" even though it was found.
-This application failed to start because no Qt platform plugin could be initialized. Reinstalling the application may fix this problem.
-
-Available platform plugins are: eglfs, linuxfb, minimal, minimalegl, offscreen, vnc, xcb.
-
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+<QgsVectorLayer: 'vectorlayer' (ogr)>
 $ echo $?
-139
+0
 ```
 
 ```
