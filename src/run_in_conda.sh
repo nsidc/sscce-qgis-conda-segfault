@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
+_CONDA_ROOT='/root/miniconda3'
+\. "$_CONDA_ROOT/etc/profile.d/conda.sh" || return $?
+conda activate test-qgis-segfault
 
 echo "$@"
-echo "foo bar"
-source ~/miniconda3/bin/activate \
-    && echo "baz" \
-    && source activate 'test-qgis-segfault' && echo "bar" \
-    && $@
+$@
