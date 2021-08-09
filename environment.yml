@@ -1,0 +1,6 @@
+name: test-qgis-segfault
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - qgis ~=3.14.3
